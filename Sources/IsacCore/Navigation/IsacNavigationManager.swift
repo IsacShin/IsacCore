@@ -9,48 +9,48 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 @MainActor
-final class IsacNavigationManager: ObservableObject {
-    static let shared = IsacNavigationManager()
+public final class IsacNavigationManager: ObservableObject {
+    public static let shared = IsacNavigationManager()
     
-    @Published private(set) var viewStack: [ViewItem] = []
+    @Published public private(set) var viewStack: [IsacViewItem] = []
     
     private init() {}
     
-    struct ViewItem: Identifiable, Equatable {
-        let id: String
-        let view: AnyView
-        let presentationStyle: PresentationStyle
+    public struct IsacViewItem: Identifiable, Equatable {
+        public let id: String
+        public let view: AnyView
+        public let presentationStyle: PresentationStyle
         
-        enum PresentationStyle {
+        public enum PresentationStyle {
             case navigationLink
             case sheet
             case fullScreenCover
         }
 
-        static func == (lhs: ViewItem, rhs: ViewItem) -> Bool {
+        public static func == (lhs: IsacViewItem, rhs: IsacViewItem) -> Bool {
             lhs.id == rhs.id
         }
     }
 
-    var activeView: ViewItem? {
+    public var activeView: IsacViewItem? {
         viewStack.last
     }
 
-    func push<V: View>(_ view: V, id: String, style: ViewItem.PresentationStyle = .navigationLink) {
+    public func push<V: View>(_ view: V, id: String, style: IsacViewItem.PresentationStyle = .navigationLink) {
         if !viewStack.contains(where: { $0.id == id }) {
-            let item = ViewItem(id: id, view: AnyView(view), presentationStyle: style)
+            let item = IsacViewItem(id: id, view: AnyView(view), presentationStyle: style)
             viewStack.append(item)
             IsacNavigationLogger.shared.logPush(id: id) // 로그 기록
         }
     }
 
-    func pop() {
+    public func pop() {
         if let item = viewStack.popLast() {
             IsacNavigationLogger.shared.logPop(id: item.id) // 로그 기록
         }
     }
 
-    func popToRoot() {
+    public func popToRoot() {
         viewStack.removeAll()
         IsacNavigationLogger.shared.logPopToRoot()
     }
