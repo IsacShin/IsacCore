@@ -9,8 +9,8 @@ import SwiftUI
 
 /// 앱 전역 테마를 관리하는 매니저
 @available(iOS 13.0, *)
-public final class ThemeManager: ObservableObject {
-    @MainActor public static let shared = ThemeManager()
+public final class IsacThemeManager: ObservableObject {
+    @MainActor public static let shared = IsacThemeManager()
     
     @Published public private(set) var primaryColor: Color = .secondary
     @Published public private(set) var accentColor: Color = .white

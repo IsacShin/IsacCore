@@ -8,8 +8,8 @@
 import Foundation
 
 /// 앱 환경설정 및 Feature Flag를 관리하는 매니저
-public final class EnvironmentManager {
-    @MainActor public static let shared = EnvironmentManager()
+public final class IsacEnvironmentManager {
+    @MainActor public static let shared = IsacEnvironmentManager()
     
     public enum Environment {
         case development
