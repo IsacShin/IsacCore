@@ -1,5 +1,5 @@
 {
-  "originHash" : "4ba75d2331ac081407e4b9b7d274160ca761823e0e02eefb6e0bf569e83ad9f7",
+  "originHash" : "86a6f737da46fb4659489f7051ca42fdec6d3608d775600969ce1541496fdfa4",
   "pins" : [
     {
       "identity" : "isacfoundation",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/IsacShin/IsacFoundation.git",
       "state" : {
         "revision" : "9e6c0d9edcbda442f5af4c480af01d0b881d4801",
-        "version" : "1.0.0"
+        "version" : "0.0.1"
       }
     }
   ],

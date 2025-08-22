@@ -12,7 +12,7 @@ let package = Package(
             targets: ["IsacCore"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/IsacShin/IsacFoundation.git", from: "1.0.0")
+        .package(url: "https://github.com/IsacShin/IsacFoundation.git", from: "0.0.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
